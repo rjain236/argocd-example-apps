@@ -14,7 +14,7 @@ spec:
         app: quarkus-poc
     spec:
       containers:
-      - image: quarkus/code-with-quarkus-jvm
+      - image: rjain236/quarkus-poc:0.0.1
         name: quarkus-poc
         imagePullPolicy: IfNotPresent
         ports:

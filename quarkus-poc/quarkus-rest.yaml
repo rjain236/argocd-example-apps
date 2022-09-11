@@ -30,7 +30,7 @@ spec:
         app: quarkus-rest
     spec:
       containers:
-      - image: rjain236/quarkus-rest-jvm:4379844
+      - image: rjain236/quarkus-rest-jvm:51a9cc8
         name: quarkus-rest
         imagePullPolicy: IfNotPresent
         ports:

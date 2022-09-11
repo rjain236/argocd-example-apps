@@ -4,7 +4,7 @@ metadata:
   name: quarkus-gateway
 spec:
   ports:
-    - port: 80
+    - port: 8080
       targetPort: 8080
   selector:
     app: quarkus-gateway
@@ -25,8 +25,8 @@ spec:
         app: quarkus-gateway
     spec:
       containers:
-      - image: rjain236/quarkus-gateway-jvm:4bc18d4
+      - image: rjain236/quarkus-gateway-jvm:ef81ffa
         name: quarkus-gateway
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80
+        - containerPort: 8080

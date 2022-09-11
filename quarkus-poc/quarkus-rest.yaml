@@ -4,8 +4,13 @@ metadata:
   name: quarkus-rest
 spec:
   ports:
-    - port: 80
-      targetPort: 8080
+    - port: 8600
+      targetPort: 8600
+      name: "http-port"
+    - port: 9000
+      targetPort: 9000
+      name: "grpc-port"
+
   selector:
     app: quarkus-rest
 ---
@@ -25,8 +30,9 @@ spec:
         app: quarkus-rest
     spec:
       containers:
-      - image: rjain236/quarkus-rest-jvm:4bc18d4
+      - image: rjain236/quarkus-rest-jvm:ef81ffa
         name: quarkus-rest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80
+        - containerPort: 8600
+        - containerPort: 9000

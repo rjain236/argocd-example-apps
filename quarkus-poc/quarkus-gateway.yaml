@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quarkus-gateway
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: quarkus-gateway
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-gateway
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: quarkus-gateway
+  template:
+    metadata:
+      labels:
+        app: quarkus-gateway
+    spec:
+      containers:
+      - image: rjain236/quarkus-gateway-jvm:4bc18d4
+        name: quarkus-gateway
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

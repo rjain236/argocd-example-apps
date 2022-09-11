@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quarkus-rest
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: quarkus-rest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-rest
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: quarkus-rest
+  template:
+    metadata:
+      labels:
+        app: quarkus-rest
+    spec:
+      containers:
+      - image: rjain236/quarkus-rest-jvm:4bc18d4
+        name: quarkus-rest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

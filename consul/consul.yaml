@@ -6,8 +6,10 @@ spec:
   ports:
     - port: 8500
       targetPort: 8500
+      name: "port1"
     - port: 8501
       targetPort: 8501
+      name: "port2"
   selector:
     app: consul
 ---

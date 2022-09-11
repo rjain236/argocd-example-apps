@@ -25,7 +25,7 @@ spec:
         app: quarkus-gateway
     spec:
       containers:
-      - image: rjain236/quarkus-gateway-jvm:5218dbf
+      - image: rjain236/quarkus-gateway-jvm:4379844
         name: quarkus-gateway
         imagePullPolicy: IfNotPresent
         ports:

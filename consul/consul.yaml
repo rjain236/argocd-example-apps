@@ -19,27 +19,25 @@ metadata:
 spec:
   replicas: 1
   revisionHistoryLimit: 1
-  strategy:
-    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: consul
   template:
     metadata:
       labels:
-        app: mailhog
+        app: consul
     spec:
-      volumes:
-        - name: secrets-volume
-          secret:
-            secretName: mailhog-login
       containers:
-        - name: consul
-          image: consul:1.7
+        - image: consul:1.7
+          name: consul
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8500
             - containerPort: 8501
-          args:
-            - "agent"
-            - "-dev"
-            - "-ui"
-            - "-client=0.0.0.0"
-            - "-bind=0.0.0.0"
-            - "-https-port=8501"
+            args:
+              - "agent"
+              - "-dev"
+              - "-ui"
+              - "-client=0.0.0.0"
+              - "-bind=0.0.0.0"
+              - "-https-port=8501"

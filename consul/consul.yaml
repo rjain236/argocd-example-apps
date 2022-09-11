@@ -34,10 +34,10 @@ spec:
           ports:
             - containerPort: 8500
             - containerPort: 8501
-            args:
-              - "agent"
-              - "-dev"
-              - "-ui"
-              - "-client=0.0.0.0"
-              - "-bind=0.0.0.0"
-              - "-https-port=8501"
+          args:
+            - "agent"
+            - "-dev"
+            - "-ui"
+            - "-client=0.0.0.0"
+            - "-bind=0.0.0.0"
+            - "-https-port=8501"
